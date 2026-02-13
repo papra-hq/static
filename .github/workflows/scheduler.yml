@@ -9,30 +9,34 @@ on:
 
 jobs:
   update-sponsors:
+    name: Update sponsors assets
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Set node
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 25
           cache: "pnpm"
 
-      - run: pnpm i
+      - name: Install dependencies
+        run: pnpm i
 
-      - name: Update sponsors
+      - name: Update sponsors assets
         run: pnpm run build
         env:
           SPONSORKIT_GITHUB_TOKEN: ${{ secrets.SPONSORKIT_GITHUB_TOKEN }}
           SPONSORKIT_GITHUB_LOGIN: papra-hq
           SPONSORKIT_GITHUB_TYPE: organization
 
-      - name: Commit
+      - name: Commit changes
         uses: EndBug/add-and-commit@v9
         with:
           message: 'chore(static): update sponsors assets [ci skip]'

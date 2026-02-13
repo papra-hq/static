@@ -1,0 +1,12 @@
+{
+  "name": "@papra/static",
+  "type": "module",
+  "scripts": {
+    "build": "sponsorkit"
+  },
+  "packageManager": "pnpm@10.28.0",
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "sponsorkit": "^17.0.0"
+  }
+}

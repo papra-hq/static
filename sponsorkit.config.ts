@@ -1,11 +1,6 @@
 import { defineConfig, tierPresets } from 'sponsorkit';
 
 export default defineConfig({
-  github: {
-    type: 'organization',
-    login: 'papra-hq',
-  },
-
   tiers: [
     {
       title: 'Past Sponsors',

@@ -10,6 +10,8 @@ on:
 jobs:
   update-sponsors:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -33,8 +35,6 @@ jobs:
       - name: Commit
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: GitHub Actions
-          author_email: 41898282+github-actions[bot]@users.noreply.github.com
           message: 'chore(static): update sponsors assets [ci skip]'
           add: "assets/sponsors.*"
         env:
